@@ -5,11 +5,11 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
 public class User {
-    @NotEmpty
-    @Size(min = 2, max = 30)
+    @NotEmpty(message = "Không được để trống")
+    @Size(min = 2, max = 30, message = " Nhập tên từ 2 đến 30 ký tự")
     private String name;
 
-    @Min(18)
+    @Min(value = 18, message = "Tuổi từ 18 trở lên")
     private int age;
 
     public User() {

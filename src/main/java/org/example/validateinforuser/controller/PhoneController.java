@@ -15,7 +15,7 @@ public class PhoneController {
     @GetMapping("/")
     public String showForm(Model model) {
         model.addAttribute("phoneNumber", new PhoneNumber());
-        return "/index";
+        return "index";
     }
 
     @PostMapping("/")
@@ -23,10 +23,10 @@ public class PhoneController {
                                   BindingResult bindingResult, Model model) {
         new PhoneNumber().validate(phoneNumber, bindingResult);
         if (bindingResult.hasFieldErrors()) {
-            return "/index";
+            return "index";
         } else {
             model.addAttribute("phoneNumber", phoneNumber);
-            return "/result";
+            return "result";
         }
     }
 }
